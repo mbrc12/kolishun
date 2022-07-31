@@ -52,3 +52,12 @@ fun intersect(P: Rect, Q: Rect): Boolean {
     }
     return true
 }
+
+fun overlap(P: Rect, Q: Rect): Rect? {
+    if (!intersect(P, Q)) return null
+
+    val (lx, rx) = Pair(Math.max(P.lowerLeft.x, Q.lowerLeft.x), Math.min(P.lowerLeft.x + P.size.x, Q.lowerLeft.x + Q.size.x))
+    val (ly, ry) = Pair(Math.max(P.lowerLeft.y, Q.lowerLeft.y), Math.min(P.lowerLeft.y + P.size.y, Q.lowerLeft.y + Q.size.y))
+
+    return Rect(Vec2(lx, ly), Vec2(rx - lx, ry - ly))
+}

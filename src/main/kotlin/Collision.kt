@@ -1,3 +1,3 @@
 package org.subwave.kolishun
 
-data class Collision<E, F>(val first: Ensemble<E>, val second: Ensemble<F>, val impacts: List<Vec2>)
+data class Collision<E>(val first: Ensemble<E>, val second: Ensemble<E>, val overlap: List<Rect>)
